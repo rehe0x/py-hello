@@ -5,6 +5,7 @@ from flask import Flask
 import re
 import requests
 import json
+from app import users
 
 STATIC_URL = 'https://pub-static.haozhaopian.net'
 
@@ -24,12 +25,15 @@ if __name__ == '__main__':
     #r1 = requests.get(url='http://dict.baidu.com/s', params={'wd': 'python'})
     if r.status_code == 404:
         print(r.status_code)
-
-    dict1 = {}
-    dict1['id'] = "This is one"
-    dict1['url'] = "This is two"
-    f = open('sticker.json','a',encoding = 'utf-8')
-    json.dump(dict1,f)
-    re = json.loads(f.read())
-    print(re[1]['id'])
+    ret = users.find_user()
+    print(ret)
+    for i in ret:
+        print(i[0])
+    # dict1 = {}
+    # dict1['id'] = "This is one"
+    # dict1['url'] = "This is two"
+    # f = open('sticker.json','a',encoding = 'utf-8')
+    # json.dump(dict1,f)
+    # re = json.loads(f.read())
+    # print(re[1]['id'])
     #app.run()
