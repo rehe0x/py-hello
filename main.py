@@ -73,7 +73,6 @@ if __name__ == '__main__':
     headers={
         'Authorization':''
     }
-    # rep = requests.post(url='http://52.80.15.237:8025/sticker/syncResources', params={'ids': 'fb23a40a-eb70-4669-97ce-9d27aba31621','syncState':'01'},headers=headers)  
     # print(rep.text)      
     with open('sticker_error.txt', 'r',encoding = 'utf-8') as p:
         re = p.readlines()
